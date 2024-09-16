@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { Search } from "../app/_comonents/search";
 import { Dropdown } from "../components/ui/dropdown";
 import { FaBell } from "react-icons/fa6";
+import {Sheets} from "../components/ui/shet";
 const ChangeTheme = dynamic(() => import("./change-theme"), {
   ssr: false,
 });
@@ -37,6 +38,9 @@ export const Header = () => {
           </li>
           <li>
             <Dropdown />
+          </li>
+          <li>
+            <Sheets />
           </li>
           <li>
             <ChangeTheme />
