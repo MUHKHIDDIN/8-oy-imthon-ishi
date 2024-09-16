@@ -4,6 +4,7 @@ import { getBrend } from "../../Service/Query/get-brend";
 import { productTypes } from "../../Service/types/products";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
 export const Brend = () => {
   const [data, setData] = useState<productTypes[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -32,41 +33,40 @@ export const Brend = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 dark:bg-gray-900">
-      {data.slice(0, 4).map((item) => {
-        const price = Number(item.price.replace(/\s/g, ""));
+    <div className="container mx-auto p-6 dark:bg-gray-900">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {data.slice(0, 4).map((item) => {
+          const price = item.price ? Number(item.price.replace(/\s/g, "")) : 0;
 
-        return (
-          <Link href={`/Product-detail/${item.id}`} key={item.id}>
-          <div
-            key={item.id}
-            className="bg-white shadow-lg rounded-lg overflow-hidden dark:bg-gray-800 dark:text-gray-100"
-          >
-            <img
-              src={item.img}
-              alt={item.title}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4 flex flex-col justify-between h-full">
-              <div className="mb-4">
-                <h2 className="text-xl font-bold text-gray-800 mb-2 dark:text-white">
-                  {item.title}
-                </h2>
-                <strong className="text-gray-800 dark:text-gray-300">
-                  $ {item.price}
-                </strong>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Brand: {item.brand}
-                </p>
-                <Button className="mt-4 w-full bg-[#1FBA4A] text-white py-2 rounded-md hover:bg-green-600">
-                  Korzinka
-                </Button>
+          return (
+            <Link href={`/Product-detail/${item.id}`} key={item.id}>
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                <img
+                  src={item.img || "/placeholder.png"}
+                  alt={item.title || "No Image"}
+                  className="w-[150px] ml-auto mr-auto h-36 object-cover" // o'lchamlarni kichikroq qilish
+                />
+                <div className="p-4 flex flex-col h-full">
+                  <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+                    {item.title}
+                  </h2>
+                  {item.brand && (
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                      Brand: {item.brand}
+                    </p>
+                  )}
+                  <p className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                    Price: ${price.toFixed(2)}
+                  </p>
+                  <Button className="mt-auto w-full bg-[#1FBA4A] text-white py-2 rounded-md hover:bg-green-600 transition-colors duration-300">
+                    Korzinka
+                  </Button>
+                </div>
               </div>
-            </div>
-          </div>
-        </Link>
-        );
-      })}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 };

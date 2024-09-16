@@ -43,41 +43,42 @@ export const Phone = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 dark:bg-gray-900">
-      {data.slice(0, 4).map((item) => {
-        const price = item.price ? Number(item.price.replace(/\s/g, "")) : 0;
+    <div className="container mx-auto p-6 dark:bg-gray-900">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {data.slice(0, 4).map((item) => {
+          const price = item.price ? Number(item.price.replace(/\s/g, "")) : 0;
 
-        return (
-          <Link href={`/Product-detail/${item.id}`} key={item.id}>
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden dark:bg-gray-800 dark:text-gray-100 cursor-pointer block">
-              <img
-                src={item.img || "/placeholder.png"} 
-                alt={item.title || "No Image"}
-                className="w-full  object-cover"
-              />
-              <div className="p-4 flex flex-col justify-between h-full">
-                <div>
-                  <h2 className="text-xl font-bold text-gray-800 mb-2 dark:text-white">
-                    {item.title}
-                  </h2>
-                  {item.brand && (
-                    <p className="text-gray-600 dark:text-gray-300">
-                      Brand: {item.brand}
+          return (
+            <Link href={`/Product-detail/${item.id}`} key={item.id}>
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                <img
+                  src={item.img || "/placeholder.png"} 
+                  alt={item.title || "No Image"}
+                  className="w-[150px] ml-auto mr-auto h-36  object-cover"
+                />
+                <div className="p-6 flex flex-col h-full">
+                  <div className="flex flex-col flex-grow">
+                    <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                      {item.title}
+                    </h2>
+                    {item.brand && (
+                      <p className="text-gray-600 dark:text-gray-300 mb-4">
+                        Brand: {item.brand}
+                      </p>
+                    )}
+                    <p className="text-lg font-semibold text-gray-900 dark:text-white">
+                      Price: ${price.toFixed(2)}
                     </p>
-                  )}
-                  <p className="text-lg font-semibold text-gray-900 mt-4 dark:text-white">
-                    Price: ${price.toFixed(2)}
-                  </p>
-
+                  </div>
                   <Button className="mt-4 w-full bg-[#1FBA4A] text-white py-2 rounded-md hover:bg-green-500 transition-colors duration-300">
                     Korzinka
                   </Button>
                 </div>
               </div>
-            </div>
-          </Link>
-        );
-      })}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 };
