@@ -47,7 +47,7 @@ const ProductDetail = () => {
         </Button>
       </Link>
       {product && (
-        <div className="flex flex-col md:flex-row gap-10 items-center justify-between mt-6">
+        <div className="flex flex-col  md:flex-row gap-10 items-center justify-between mt-6">
           <div>
             <img
               className="w-[400px] h-auto object-cover rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
@@ -98,7 +98,7 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <Button className="mt-6 w-full bg-[#1FBA4A] text-white py-3 rounded-lg shadow-md hover:bg-green-500 dark:hover:bg-green-600 transition-colors duration-300">
+            <Button className="mt-6 w-[500px] bg-[#1FBA4A] text-white py-3 rounded-lg shadow-md hover:bg-green-500 dark:hover:bg-green-600 transition-colors duration-300">
               Savatchaga
             </Button>
           </div>

@@ -13,12 +13,12 @@ export const Catalogs = async () => {
           Maxsus buyirtma
         </h1>
 
-        <div className="flex flex-col border-[2px] shadow-md p-2 h-[2120px] w-[200px]">
+        <div className="flex flex-col border-[2px] shadow-md p-2 h-[1470px] w-[200px] text-center gap-2">
           {catalog.map((catalogs) => (
             <>
               <Link key={catalogs.id} href={`/catalog-list/${catalogs.name}`}>
                 <div>
-                  <strong>{catalogs.name}</strong>
+                  <strong className="hover:text-[#1FBA4A] cursor-pointer text-center">{catalogs.text}</strong>
                 </div>
               </Link>
             </>

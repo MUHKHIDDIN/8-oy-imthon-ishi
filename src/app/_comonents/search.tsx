@@ -1,41 +1,91 @@
 "use client";
 
-import React from "react";
-import { BsFillSearchHeartFill } from "react-icons/bs";
+import React, { useState, useEffect, useRef } from "react";
+import { getNotebookByTitle } from "../../Service/Query/get-All data"; // Ensure the path is correct
 
-import { Button } from "../../components/ui/button";
-import { RiListSettingsFill } from "react-icons/ri";
+interface SearchResult {
+  id: number;
+  img: string;
+  title: string;
+  price: string;
+}
 
 export const Search = () => {
-  const [inputValue, setValue] = React.useState("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [results, setResults] = useState<SearchResult[]>([]);
+  const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLUListElement | null>(null);
 
+  // Handle search input change
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    if (query.length >= 3) {
+      fetchSearchResults(query);
+    } else {
+      setResults([]);
+      setIsDropdownVisible(false);
+    }
+  };
+
+  // Fetch search results
+  const fetchSearchResults = async (query: string) => {
+    setIsLoading(true);
+    try {
+      const data = await getNotebookByTitle(query); // API call
+      setResults(data);
+      setIsDropdownVisible(true);
+    } catch (error) {
+      console.error("Error fetching search results:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+ 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownVisible(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
-    <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center">
-      <div className="relative w-full flex items-center">
-        <div className="relative flex items-center w-full">
-          <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-            <BsFillSearchHeartFill className="text-2xl text-gray-500" />
-          </div>
-          <input
-            onChange={(e) => setValue(e.target.value)}
-            placeholder="Qidirish..."
-            className="w-[800px] h-10 border-l border-y border-gray-300 bg-white px-4 pl-12 text-sm text-gray-800 shadow-md outline-none transition-all duration-300 ease-in-out focus:ring-2 focus:ring-green-500"
-            type="text"
-          />
-          <Button
-            className="h-10 border rounded-l-none border-gray-300 px-4 flex items-center gap-2 rounded-r-lg"
-            variant="success"
-          >
-            <RiListSettingsFill className="text-lg" />
-            Filter
-          </Button>
-        </div>
-      </div>
-      {inputValue.length >= 3 && (
-        <div className="absolute left-1/2 top-full z-10 mt-4 w-full max-w-xl -translate-x-1/2 transform rounded-lg bg-[#bcb7cb] shadow-lg">
-        </div>
+    <div className="relative flex items-center w-full max-w-xl">
+   
+      <input
+        type="text"
+        className="w-full h-10 px-4 border border-gray-300 rounded-l-lg focus:outline-none focus:border-green-500"
+        placeholder="Qidiruv..."
+        value={searchQuery}
+        onChange={handleSearchChange}
+      />
+
+      <button className="h-10 px-4 bg-green-500 text-white hover:bg-green-600 rounded-r-lg">
+        Filter
+      </button>
+
+  
+      {isDropdownVisible && results.length > 0 && (
+        <ul ref={dropdownRef} className="absolute top-full left-0 w-full bg-white border border-gray-300 mt-1 rounded-lg shadow-md z-10">
+          {results.map((item) => (
+            <li key={item.id} className="flex items-center p-3 hover:bg-gray-100 cursor-pointer">
+              <img src={item.img} alt={item.title} className="w-12 h-12 object-cover rounded-lg mr-4" />
+              <div>
+                <h3 className="text-sm font-semibold">{item.title}</h3>
+                <p className="text-sm text-gray-600">{item.price}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       )}
+
+      {isLoading && <p className="absolute top-full mt-2 text-sm text-gray-500">Yuklanmoqda...</p>}
     </div>
   );
 };

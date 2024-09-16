@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 
 export const Phone = () => {
   const [data, setData] = useState<productTypes[]>([]);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,32 +14,12 @@ export const Phone = () => {
         const result = await getPhone();
         setData(result);
       } catch (error) {
-        setError((error as Error).message);
+        console.error("Error fetching phones:", (error as Error).message);
       }
     };
 
     fetchData();
   }, []);
-
-  if (error) {
-    return (
-      <div className="flex items-center justify-center h-96">
-        <div className="text-xl text-red-500 dark:text-red-400">
-          Error: {error}
-        </div>
-      </div>
-    );
-  }
-
-  if (!data.length) {
-    return (
-      <div className="flex items-center justify-center h-96">
-        <div className="text-xl text-gray-500 dark:text-gray-300">
-          Loading...
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="container mx-auto p-6 dark:bg-gray-900">
@@ -54,7 +33,7 @@ export const Phone = () => {
                 <img
                   src={item.img || "/placeholder.png"} 
                   alt={item.title || "No Image"}
-                  className="w-[150px] ml-auto mr-auto h-36  object-cover"
+                  className="w-[100px] ml-auto mr-auto h-36 object-cover pt-4"
                 />
                 <div className="p-6 flex flex-col h-full">
                   <div className="flex flex-col flex-grow">

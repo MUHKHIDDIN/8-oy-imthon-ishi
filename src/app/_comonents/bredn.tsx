@@ -7,7 +7,6 @@ import Link from "next/link";
 
 export const Brend = () => {
   const [data, setData] = useState<productTypes[]>([]);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,22 +14,12 @@ export const Brend = () => {
         const result = await getBrend();
         setData(result);
       } catch (error) {
-        setError((error as Error).message);
+        console.error("Failed to fetch data:", error);
       }
     };
 
     fetchData();
   }, []);
-
-  if (error) {
-    return (
-      <div className="flex items-center justify-center h-96">
-        <div className="text-xl text-red-500 dark:text-red-400">
-          Error: {error}
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="container mx-auto p-6 dark:bg-gray-900">
@@ -44,7 +33,7 @@ export const Brend = () => {
                 <img
                   src={item.img || "/placeholder.png"}
                   alt={item.title || "No Image"}
-                  className="w-[150px] ml-auto mr-auto h-36 object-cover" // o'lchamlarni kichikroq qilish
+                  className="w-[100px] ml-auto mr-auto h-36 object-cover pt-4"
                 />
                 <div className="p-4 flex flex-col h-full">
                   <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">

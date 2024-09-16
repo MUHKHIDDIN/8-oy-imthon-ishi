@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { productTypes } from "../../Service/types/products";
 import Link from "next/link";
 
-// `productTypes` dan tur e'lon qilingan
+
 export const ProductCard: React.FC<productTypes> = ({
   img,
   title,

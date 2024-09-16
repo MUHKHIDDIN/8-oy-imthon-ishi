@@ -12,70 +12,38 @@ const config: Config = {
       container: {
         center: true,
         padding: {
-          DEFAULT: '1rem',
-          sm: '1rem', // Mobil qurilma uchun padding 1rem bo'ladi
-          lg: '2rem', // Planshet uchun padding
-          xl: '2rem', // Katta ekranlar uchun padding
+          DEFAULT: "1rem",
+          sm: "1rem", // Mobil qurilma uchun padding 1rem bo'ladi
+          lg: "2rem", // Planshet uchun padding
+          xl: "2rem", // Katta ekranlar uchun padding
         },
         screens: {
-          sm: '375px', // Mobil ekran
-          md: '600px', // Planshet ekran
-          lg: '1300px', // Katta ekran
-          xl: '1300px',
-          '2xl': '1436px',
+          sm: "375px", // Mobil ekran
+          md: "600px", // Planshet ekran
+          lg: "1300px", // Katta ekran
+          xl: "1300px",
+          "2xl": "1436px",
         },
       },
       margin: {
-        'container-x': '2rem',
-      },
-      colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        chart: {
-          "1": "hsl(var(--chart-1))",
-          "2": "hsl(var(--chart-2))",
-          "3": "hsl(var(--chart-3))",
-          "4": "hsl(var(--chart-4))",
-          "5": "hsl(var(--chart-5))",
-        },
+        "container-x": "2rem",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      }
-    }
+      },
+      // Chaqnash animatsiyasini qo'shamiz
+      keyframes: {
+        flash: {
+          "0%, 100%": { transform: "scale(1)", opacity: "1" },
+          "50%": { transform: "scale(1.5)", opacity: "0.5" },
+        },
+      },
+      animation: {
+        flash: "flash 0.5s ease-in-out", // Chaqnash animatsiyasi 0.5s davom etadi
+      },
+    },
   },
   plugins: [require("tailwindcss-animate")],
 };
