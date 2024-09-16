@@ -22,7 +22,7 @@ const config: Config = {
           md: '600px', // Planshet ekran
           lg: '1300px', // Katta ekran
           xl: '1300px',
-          '2xl': '1536px',
+          '2xl': '1436px',
         },
       },
       margin: {

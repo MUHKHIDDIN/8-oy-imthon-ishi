@@ -9,25 +9,27 @@ const ChangeTheme = dynamic(() => import("./change-theme"), {
 
 export const Header = () => {
   return (
-    <header className="container mx-auto pt-6 pb-8">
-      <ul className="flex items-center justify-between gap-6 bg-white dark:bg-gray-900 p-4 rounded-lg sh">
-        <li>
-          <img
-            className="h-10 dark:invert"
-            src="/header-logo.svg"
-            alt="logo"
-          />
-        </li>
-        <li className="flex-grow">
-          <Search />
-        </li>
-        <li>
-          <Dropdown />
-        </li>
-        <li>
-          <ChangeTheme />
-        </li>
-      </ul>
+    <header className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow-md z-50">
+      <div className="container mx-auto px-4 py-4">
+        <ul className="flex items-center justify-between gap-6">
+          <li>
+            <img
+              className="h-10 dark:invert"
+              src="/header-logo.svg"
+              alt="logo"
+            />
+          </li>
+          <li className="flex-grow">
+            <Search />
+          </li>
+          <li>
+            <Dropdown />
+          </li>
+          <li>
+            <ChangeTheme />
+          </li>
+        </ul>
+      </div>
     </header>
   );
 };
