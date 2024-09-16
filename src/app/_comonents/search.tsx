@@ -2,13 +2,13 @@
 
 import React from "react";
 import { BsFillSearchHeartFill } from "react-icons/bs";
-import { useDebounce } from "../../hooks/use-debounse";
+
 import { Button } from "../../components/ui/button";
 import { RiListSettingsFill } from "react-icons/ri";
 
 export const Search = () => {
   const [inputValue, setValue] = React.useState("");
-  const debouncedValue = useDebounce(inputValue);
+
 
   return (
     <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center">

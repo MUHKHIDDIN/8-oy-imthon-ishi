@@ -7,6 +7,7 @@ const CatalogSingle = async ({ params }: any) => {
   const product = await getCatalogByName(name);
 
   return (
+
     <div className="container">
       <div className="grid  grid-cols-4 gap-5 pt-[100px]">
         {product.map((catalog) => (
@@ -16,6 +17,7 @@ const CatalogSingle = async ({ params }: any) => {
         ))}
       </div>
     </div>
+   
   );
 };
 

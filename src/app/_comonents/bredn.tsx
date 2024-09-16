@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getBrend } from "../../Service/Query/get-brend";
 import { productTypes } from "../../Service/types/products";
 import { Button } from "@/components/ui/button";
-
+import Link from "next/link";
 export const Brend = () => {
   const [data, setData] = useState<productTypes[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -37,6 +37,7 @@ export const Brend = () => {
         const price = Number(item.price.replace(/\s/g, ""));
 
         return (
+          <Link href={`/Product-detail/${item.id}`} key={item.id}>
           <div
             key={item.id}
             className="bg-white shadow-lg rounded-lg overflow-hidden dark:bg-gray-800 dark:text-gray-100"
@@ -63,6 +64,7 @@ export const Brend = () => {
               </div>
             </div>
           </div>
+        </Link>
         );
       })}
     </div>

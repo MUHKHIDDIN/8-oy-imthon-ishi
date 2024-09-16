@@ -7,6 +7,9 @@ const url = process.env.APP_URL;
 export const getNotebook = async (): Promise<productTypes[]> => {
   try {
     const res = await fetch(`${url}/notebook`);
+    if (!res.ok) {
+      throw new Error(`Server error: ${res.status}`);
+    }
     const data = await res.json();
     return data;
   } catch (error) {
@@ -14,3 +17,6 @@ export const getNotebook = async (): Promise<productTypes[]> => {
     throw new Error(message);
   }
 };
+
+
+

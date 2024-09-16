@@ -15,3 +15,8 @@ export const getCatalogByName = async (name: string): Promise<productTypes[]> =>
     throw new Error(message);
   }
 };
+
+
+
+
+

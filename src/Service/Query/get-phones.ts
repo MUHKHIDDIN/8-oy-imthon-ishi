@@ -1,16 +1,18 @@
-"use server";
-
+"use server"  
 import { productTypes } from "../types/products";
-const url = process.env.APP_URL;
+const url = process.env.APP_URL
 
 
-export const getPhone = async (): Promise<productTypes[]> => {
-  try {
-    const res = await fetch(`${url}/phones`);
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    const message = (error as Error).message;
-    throw new Error(message);
-  }
-};
+
+ export const getPhone = async ():Promise<productTypes[]> => {
+    try {
+        const res = await fetch(`${url}/phones`)
+        const data = res.json()
+        return data
+    } catch (error) {
+        const err = (error as Error).message
+        throw new Error(err)
+    }
+}
+
+

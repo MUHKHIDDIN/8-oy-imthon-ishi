@@ -13,11 +13,13 @@ export const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <ul className="flex items-center justify-between gap-6">
           <li>
-            <img
+              <a href="/">
+              <img
               className="h-10 dark:invert"
               src="/header-logo.svg"
               alt="logo"
             />
+              </a>
           </li>
           <li className="flex-grow">
             <Search />

@@ -6,6 +6,8 @@ export const Catalogs = async () => {
   const catalog = await getCatalog();
   return (
     <>
+
+
       <div>
         <h1 className="text-2xl py-3 px-[10px]  bg-[#1FBA4A] text-white mb-2">
           Maxsus buyirtma
@@ -16,7 +18,7 @@ export const Catalogs = async () => {
             <>
               <Link key={catalogs.id} href={`/catalog-list/${catalogs.name}`}>
                 <div>
-                  <strong>{catalogs.text}</strong>
+                  <strong>{catalogs.name}</strong>
                 </div>
               </Link>
             </>
