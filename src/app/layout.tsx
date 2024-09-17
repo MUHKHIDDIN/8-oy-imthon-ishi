@@ -5,7 +5,7 @@ import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { ThemeProvider } from "../Provider/theme-provider";
 
-// Load fonts
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -50,10 +50,10 @@ export default function RootLayout({
       <head>
         <link
           rel="icon"
-          href="https://example.com/favicon.ico" 
+          href="https://png.pngtree.com/png-vector/20201230/ourmid/pngtree-black-mobile-phone-mockup-png-png-image_2674011.jpg" 
           sizes="any"
         />
-        <link rel="apple-touch-icon" href="https://example.com/apple-touch-icon.png" /> 
+        <link rel="apple-touch-icon" href="https://png.pngtree.com/png-vector/20201230/ourmid/pngtree-black-mobile-phone-mockup-png-png-image_2674011.jpg" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body

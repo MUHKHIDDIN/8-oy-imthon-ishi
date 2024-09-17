@@ -31,11 +31,8 @@ export const Search = () => {
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
-  };
-
-  const handleFilter = () => {
-    if (searchQuery.length >= 3) {
-      fetchSearchResults(searchQuery);
+    if (e.target.value.length >= 3) {
+      fetchSearchResults(e.target.value);
     } else {
       setFilteredResults([]);
       setIsDropdownVisible(false);
@@ -48,12 +45,6 @@ export const Search = () => {
     setFilteredResults([]);
     setIsDropdownVisible(false);
     router.push(`/Product-detail/${item.id}`);
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      handleFilter();
-    }
   };
 
   useEffect(() => {
@@ -85,12 +76,10 @@ export const Search = () => {
           className="w-full h-10 pl-10 pr-24 border border-gray-300 rounded-md focus:outline-none dark:border-gray-600 dark:bg-gray-900 dark:text-white"
           placeholder="Qidiruv..."
           value={searchQuery}
-          onChange={handleSearchChange}
-          onKeyDown={handleKeyDown}
+          onChange={handleSearchChange} // Qidiruv o'zgarganda avtomatik qidiradi
         />
         <Button
           className="absolute right-0 top-0 h-full px-4 bg-green-500 text-white hover:bg-green-600 rounded-r-lg flex items-center dark:bg-green-600 dark:hover:bg-green-700"
-          onClick={handleFilter}
         >
           <RiListSettingsFill size={20} className="mr-2" />
           Filter

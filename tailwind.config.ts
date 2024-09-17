@@ -20,10 +20,10 @@ const config: Config = {
         },
         screens: {
           sm: "375px",
-          md: "600px",
-          lg: "1300px",
-          xl: "1300px",
-          "2xl": "1436px",
+          md: "700px",
+          lg: "1024px", 
+          xl: "1280px", 
+          "2xl": "1536px", 
         },
       },
       margin: {

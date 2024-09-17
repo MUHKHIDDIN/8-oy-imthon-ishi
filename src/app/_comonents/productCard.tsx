@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { productTypes } from "../../Service/types/products";
 import Link from "next/link";
-
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export const ProductCard: React.FC<productTypes> = ({
   img,
@@ -18,14 +18,17 @@ export const ProductCard: React.FC<productTypes> = ({
   memory,
   weight,
   text,
-  name,
   id,
 }) => {
   return (
     <Link href={`/Product-detail/${id}`} key={id}>
-      <div className="bg-white dark:bg-gray-800 shadow-lg dark:shadow-gray-700 rounded-lg overflow-hidden w-full max-w-xs p-4 hover:shadow-xl transition-shadow duration-300">
+      <div className="bg-white dark:bg-gray-800 mt-[80px] shadow-lg dark:shadow-gray-700 rounded-lg overflow-hidden w-full max-w-xs p-4 hover:shadow-xl transition-shadow duration-300">
         <div className="relative">
-           <img className="w-[150px] ml-auto mr-auto h-36 object-cover" src= {img}alt="img" />
+          <img
+            className="w-[150px] ml-auto mr-auto h-36 object-cover"
+            src={img}
+            alt="img"
+          />
           <div className="absolute top-2 right-2 bg-[#1FBA4A] dark:bg-[#34D399] text-white px-2 py-1 rounded text-xs shadow-lg">
             ${price}
           </div>
@@ -69,9 +72,12 @@ export const ProductCard: React.FC<productTypes> = ({
               Weight: {weight}
             </p>
           )}
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{text}</p>
-          <Button className="mt-4 w-full bg-[#1FBA4A] dark:bg-[#34D399] text-white py-2 rounded-md hover:bg-green-500 dark:hover:bg-green-600 transition-colors duration-300">
-            Korzinka
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+            {text}
+          </p>
+          <Button className="mt-4 w-full bg-[#1FBA4A] dark:bg-[#34D399] text-white py-2 rounded-md hover:bg-green-500 dark:hover:bg-green-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+            <AiOutlineShoppingCart className="text-xl" />
+            <span>Korzinka</span>
           </Button>
         </div>
       </div>
