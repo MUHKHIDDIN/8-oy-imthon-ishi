@@ -13,14 +13,15 @@ const config: Config = {
         center: true,
         padding: {
           DEFAULT: "1rem",
-          sm: "1rem", // Mobil qurilma uchun padding 1rem bo'ladi
-          lg: "2rem", // Planshet uchun padding
-          xl: "2rem", // Katta ekranlar uchun padding
+          sm: "1rem",
+          md: "1.5rem",
+          lg: "2rem",
+          xl: "2rem",
         },
         screens: {
-          sm: "375px", // Mobil ekran
-          md: "600px", // Planshet ekran
-          lg: "1300px", // Katta ekran
+          sm: "375px",
+          md: "600px",
+          lg: "1300px",
           xl: "1300px",
           "2xl": "1436px",
         },
@@ -33,7 +34,6 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      // Chaqnash animatsiyasini qo'shamiz
       keyframes: {
         flash: {
           "0%, 100%": { transform: "scale(1)", opacity: "1" },
@@ -41,7 +41,7 @@ const config: Config = {
         },
       },
       animation: {
-        flash: "flash 0.5s ease-in-out", // Chaqnash animatsiyasi 0.5s davom etadi
+        flash: "flash 0.5s ease-in-out",
       },
     },
   },

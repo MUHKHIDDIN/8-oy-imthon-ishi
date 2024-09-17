@@ -29,7 +29,7 @@ export const Brend = () => {
 
           return (
             <Link href={`/Product-detail/${item.id}`} key={item.id}>
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
                 <img
                   src={item.img || "/placeholder.png"}
                   alt={item.title || "No Image"}
@@ -47,7 +47,7 @@ export const Brend = () => {
                   <p className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                     Price: ${price.toFixed(2)}
                   </p>
-                  <Button className="mt-auto w-full bg-[#1FBA4A] text-white py-2 rounded-md hover:bg-green-600 transition-colors duration-300">
+                  <Button className="mt-auto w-full bg-[#1FBA4A] text-white py-2 rounded-md">
                     Korzinka
                   </Button>
                 </div>

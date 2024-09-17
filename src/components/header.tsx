@@ -9,6 +9,7 @@ const ChangeTheme = dynamic(() => import("./change-theme"), {
   ssr: false,
 });
 
+
 export const Header = () => {
   const handleBellClick = () => {
     console.log("Qo'ng'iroqcha bosildi!"); 

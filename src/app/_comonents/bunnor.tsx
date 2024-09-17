@@ -65,7 +65,7 @@ export const Bunnor = () => {
               <img
                 src={item.img}
                 alt={`Banner ${item.id}`}
-                className="w-full h-auto object-cover filter brightness-100 dark:filter dark:brightness-75"
+                className="w-full h-auto object-cover filter brightness-100 dark:filter dark:brightness-75 pt-6"
               />
             </CarouselItem>
           ))}

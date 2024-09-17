@@ -37,11 +37,11 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="container mx-auto p-6 dark:bg-gray-900 pt-[150px]">
+    <div className="container mx-auto p-6 dark:bg-gray-900 pt-[150px] mr-8">
       <Link href={"/"}>
         <Button
-          variant={"secondary"}
-          className="flex items-center gap-2 text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+          variant={"outline"}
+          className="flex items-center gap-2 text-lg font-medium text-red-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
         >
           <BiArrowBack /> Orqaga
         </Button>

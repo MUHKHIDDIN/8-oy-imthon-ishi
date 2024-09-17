@@ -25,7 +25,7 @@ export const ProductCard: React.FC<productTypes> = ({
     <Link href={`/Product-detail/${id}`} key={id}>
       <div className="bg-white dark:bg-gray-800 shadow-lg dark:shadow-gray-700 rounded-lg overflow-hidden w-full max-w-xs p-4 hover:shadow-xl transition-shadow duration-300">
         <div className="relative">
-          <img src={img} alt={title} className="object-cover rounded-md" />
+           <img className="w-[150px] ml-auto mr-auto h-36 object-cover" src= {img}alt="img" />
           <div className="absolute top-2 right-2 bg-[#1FBA4A] dark:bg-[#34D399] text-white px-2 py-1 rounded text-xs shadow-lg">
             ${price}
           </div>

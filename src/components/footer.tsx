@@ -2,7 +2,8 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <div className="container mx-auto pt-[100px] pb-[20px]">
+   <div className="bg-white dark:bg-gray-900 mt-10">
+     <div className="container mx-auto pb-[20px] mr-5">
       <ul className="grid  md:grid-cols-4 dark:bg-gray-900 dark:p-8">
         <li className="mb-4 md:mb-0">
           <img className="dark:invert mb-4" src="/header-logo.svg" alt="logo" />
@@ -70,5 +71,6 @@ export const Footer = () => {
         </li>
       </ul>
     </div>
+   </div>
   );
 };

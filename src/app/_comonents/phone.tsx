@@ -29,7 +29,7 @@ export const Phone = () => {
 
           return (
             <Link href={`/Product-detail/${item.id}`} key={item.id}>
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
                 <img
                   src={item.img || "/placeholder.png"} 
                   alt={item.title || "No Image"}
@@ -49,7 +49,7 @@ export const Phone = () => {
                       Price: ${price.toFixed(2)}
                     </p>
                   </div>
-                  <Button className="mt-4 w-full bg-[#1FBA4A] text-white py-2 rounded-md hover:bg-green-500 transition-colors duration-300">
+                  <Button className="mt-4 w-full bg-[#1FBA4A] text-white py-2 rounded-md">
                     Korzinka
                   </Button>
                 </div>
