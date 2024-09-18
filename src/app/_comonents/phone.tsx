@@ -41,7 +41,7 @@ export const Phone = async () => {
                 </div>
                 <Button className="mt-4 w-full bg-[#1FBA4A] text-white py-2 rounded-md flex items-center justify-center space-x-2">
                   <AiOutlineShoppingCart className="text-xl" />
-                  <span>Korzinka</span>
+                  <span>Korzinka.</span>
                 </Button>
               </div>
             </div>
